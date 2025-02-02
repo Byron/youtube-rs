@@ -32,7 +32,7 @@ clap = "2"
 http-body-util = "0.1"
 % endif
 hyper = "1"
-hyper-rustls = { version = "0.27", default-features = false }
+hyper-rustls = { version = "0.27", default-features = false, features = ["http2", "rustls-native-certs", "native-tokio", "ring"] }
 hyper-util = "0.1"
 mime = "0.3"
 serde = { version = "1", features = ["derive"] }
@@ -47,7 +47,7 @@ tokio = { version = "1", features = ["full"] }
 % endif
 url = "2"
 utoipa = { version = "4", optional = true }
-yup-oauth2 = { version = "12", optional = true }
+yup-oauth2 = { version = "12", default-features = false, optional = true }
 
 google-apis-common = { path = "../../google-apis-common", version = "7" }
 % if cargo.get('is_executable'):
